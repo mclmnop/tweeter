@@ -26,6 +26,11 @@ textarea {
   background-color: rgb(177, 164, 145);
   padding: 0px;
   border: none;
+  resize: none;
+}
+
+textarea, input {
+  outline: none;
 }
 
 .submitButton {
