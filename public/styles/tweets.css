@@ -25,7 +25,6 @@ article footer {
 }
 
 .tweet {
-
   border-bottom: #545149;
   border-bottom-style: solid;
   border-bottom-width: thick;
@@ -33,10 +32,5 @@ article footer {
 
 #userID {
   color: #8686ad;
- /*  visibility:hidden; */ 
  opacity: 0;
 }
-/* #userID:hover {
-  visibility: visible ;
-  
-} */
