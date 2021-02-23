@@ -1,0 +1,42 @@
+article {
+  padding: 2%;
+  border: #545149;
+  border-style: solid;
+  border-width: thick;
+  
+}
+
+article:hover{
+  font-weight: 1000;
+  box-shadow: 10px 10px #8686ad;
+}
+
+article:hover #userID {
+  opacity: 1;
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+}
+article footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet {
+
+  border-bottom: #545149;
+  border-bottom-style: solid;
+  border-bottom-width: thick;
+}
+
+#userID {
+  color: #8686ad;
+ /*  visibility:hidden; */ 
+ opacity: 0;
+}
+/* #userID:hover {
+  visibility: visible ;
+  
+} */

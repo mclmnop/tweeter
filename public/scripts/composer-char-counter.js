@@ -9,7 +9,7 @@ $(document).ready(function() {
     const text = $(this).find('#tweet-text');
     let charCount = 140 - text.val().length;
 
-    //set the good value to counter
+    //set the good value to counter, and meke it turn red when negative
     let counter = $(this).find('.counter').val(charCount);
     if (charCount < 0) {
       counter.addClass("counterRed");
@@ -17,11 +17,5 @@ $(document).ready(function() {
     if (charCount > 0 && counter.hasClass("counterRed")) {
       counter.removeClass("counterRed");
     }
- 
   });
-
-
-  //get counter value
-  
-
 });
