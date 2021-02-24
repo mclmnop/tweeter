@@ -33,6 +33,7 @@ const escape =  function(str) {
 
 $(document).ready(function() {
 
+  //creates the HTML content for one tweet
   const createTweetElement = function(tweet) {
     const dateToConvert = new Date(tweet.created_at);
     const date = calculateTimeAgo(dateToConvert);
@@ -56,33 +57,33 @@ $(document).ready(function() {
     return tweetArticle;
   }
 
+  //loops through an array of tweets to post them one after the other
   const renderTweets = function(tweetArray) {
     //console.log(tweetArray);
-    for (let tweet of tweetArray) {
-      //console.log('inside loop',tweet)
+    for(let tweet of tweetArray) {
       const renderedTweet = createTweetElement(tweet);
       $('.tweets').append(renderedTweet);
     }
-  }
-  //renderTweets(tweetData);
+  };
 
   //event listener for new tweets, posts result when submit
   $('form').on('submit', function(event) {
+
     // prevent the default behavior of the form submission
     event.preventDefault();
 
     // capture the content of the tweet
     const serialize = $(this).serialize();
     const input = serialize.substring(5);
-    console.log('serial',serialize.substring(5));
+    // console.log('serial',serialize.substring(5));
+  
 
     if (input === "") {
-      alert('you can\'t tweet nothingness')
+      $('#errMessage').text('Your tweet is empty, please hum something');
     } else if (input.length > 140) {
-      alert('Tweet is over 140 characters');
-
+      $('#errMessage').text('Tweet is over 140 characters');
     } else {
-      //post the user's to save it to the db
+      //post the user's tweet to save it to the db
       $.ajax({
         url: 'http://localhost:8080/tweets',
         method: 'POST',
@@ -90,8 +91,7 @@ $(document).ready(function() {
       })
         .done((result) => {
           console.log('result',result);
-          location.reload(true);
-          //loadTweets();
+          location.reload;
         })
         .fail((err) => console.log(err.message));
     }
