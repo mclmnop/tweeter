@@ -25,6 +25,12 @@ const calculateTimeAgo = function(dateCreated) {
   }
 }
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
@@ -38,7 +44,7 @@ $(document).ready(function() {
     </header>
     <div class="databaseTweet">
     <div class="tweet">
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
       <p>${date}</p>
