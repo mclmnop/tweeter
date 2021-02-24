@@ -18,4 +18,11 @@
 
 #write {
   font-family: 'Source Sans Pro';
+  text-align: center;
  }
+
+ #composeButton:hover {
+   cursor: pointer;
+
+ }
+

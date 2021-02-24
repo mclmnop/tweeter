@@ -66,6 +66,26 @@ $(document).ready(function() {
     }
   };
 
+  const loadTweets = function() {
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'GET',
+    })
+      .done((result) => {
+        console.log('result',result.reverse());
+        renderTweets(result)
+      })
+      .fail((err) => console.log(err.message));
+  }
+  loadTweets();
+
+  $('#composeButton').on("click", function() {
+    console.log('allo!');
+
+    $(".new-tweet").slideToggle( "slow" );
+
+  })
+
   //event listener for new tweets, posts result when submit
   $('form').on('submit', function(event) {
 
@@ -77,7 +97,6 @@ $(document).ready(function() {
     const input = serialize.substring(5);
     // console.log('serial',serialize.substring(5));
   
-
     if (input === "") {
       $('#errMessage').text('Your tweet is empty, please hum something');
     } else if (input.length > 140) {
@@ -91,23 +110,10 @@ $(document).ready(function() {
       })
         .done((result) => {
           console.log('result',result);
-          location.reload;
+          location.reload(true);
         })
         .fail((err) => console.log(err.message));
     }
   })
-
-  const loadTweets = function() {
-    $.ajax({
-      url: 'http://localhost:8080/tweets',
-      method: 'GET',
-    })
-      .done((result) => {
-        console.log('result',result.reverse());
-        renderTweets(result)
-      })
-      .fail((err) => console.log(err.message));
-  }
-  loadTweets();
 
 });
