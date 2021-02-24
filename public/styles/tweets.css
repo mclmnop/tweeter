@@ -18,6 +18,8 @@ article:hover #userID {
 article header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 125px;
 }
 article footer {
   display: flex;

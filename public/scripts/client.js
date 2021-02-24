@@ -47,7 +47,7 @@ const tweetData = [
 // returns strings for when the post what made, 10 days ago, 10 months, etc
 const calculateTimeAgo = function(dateCreated) {
   const now = new Date(Date.now());
-  console.log(now, dateCreated.getDate())
+  //console.log(now, dateCreated.getDate())
   if (now.getMonth() === dateCreated.getMonth() && now.getDate() === dateCreated.getDate()){
     return 'today';
   } else if (now.getMonth() === dateCreated.getMonth() && now.getDate() - dateCreated.getDate() === 1){
@@ -68,9 +68,9 @@ $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
     const dateToConvert = new Date(tweet.created_at);
-    const date = calculateTimeAgo(dateToConvert)
-    const markup = `
-    <article id= "mainTweet">
+    const date = calculateTimeAgo(dateToConvert);
+    const tweetArticle = `
+    <article>
     <header>
       <p><img src=${tweet.user.avatars}>${tweet.user.name}</p>
       <p id="userID">${tweet.user.handle}</p>
@@ -84,24 +84,42 @@ $(document).ready(function() {
       <p>Likes</p>
     </footer>
     </article>
+    <br><br>
     `;
-    //get the section where the new tweets appears
-    const tweetSPace = document.querySelector("#mainTweet");
-    //tweetSPace.innerHTML = markup;
-    return markup;
+    return tweetArticle;
   }
   // const $tweet = createTweetElement(tweetData);
   // console.log("tweeeet", $tweet);
   // $('.tweets').append($tweet);
   const renderTweets = function(tweetArray) {
-    console.log(tweetArray);
+    //console.log(tweetArray);
     for (let tweet of tweetArray) {
-      console.log('inside loop',tweet)
+      //console.log('inside loop',tweet)
       const renderedTweet = createTweetElement(tweet);
       $('.tweets').append(renderedTweet);
     }
   }
   renderTweets(tweetData);
 
+
+  $('form').on('submit', function(event) {
+    // prevent the default behavior of the form submission
+    event.preventDefault();
+
+    // capture the content of the tweet
+    const serialize = $(this).serialize()
+
+    //post the user's to save it to the db
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'POST',
+      data: serialize,
+    })
+      .done((result) => {
+        console.log('result',result);
+      })
+      .fail((err) => console.log('hein?', err.message));
+
+  })
 
 });
