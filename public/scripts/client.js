@@ -66,18 +66,26 @@ $(document).ready(function() {
     event.preventDefault();
 
     // capture the content of the tweet
-    const serialize = $(this).serialize()
+    const serialize = $(this).serialize();
+    const input = serialize.substring(5);
+    console.log('serial',serialize.substring(5));
 
-    //post the user's to save it to the db
-    $.ajax({
-      url: 'http://localhost:8080/tweets',
-      method: 'POST',
-      data: serialize,
-    })
-      .done((result) => {
-        console.log('result',result);
+    if (input === "") {
+      alert('you can\'t tweet nothingness')
+    } else if (input.length > 140) {
+      alert('Tweet is over 140 characters')
+    } else {
+      //post the user's to save it to the db
+      $.ajax({
+        url: 'http://localhost:8080/tweets',
+        method: 'POST',
+        data: serialize,
       })
-      .fail((err) => console.log(err.message));
+        .done((result) => {
+          console.log('result',result);
+        })
+        .fail((err) => console.log(err.message));
+    }
   })
 
   const loadTweets = function() {
