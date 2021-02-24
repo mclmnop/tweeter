@@ -73,7 +73,8 @@ $(document).ready(function() {
     if (input === "") {
       alert('you can\'t tweet nothingness')
     } else if (input.length > 140) {
-      alert('Tweet is over 140 characters')
+      alert('Tweet is over 140 characters');
+
     } else {
       //post the user's to save it to the db
       $.ajax({
@@ -83,6 +84,8 @@ $(document).ready(function() {
       })
         .done((result) => {
           console.log('result',result);
+          location.reload(true);
+          //loadTweets();
         })
         .fail((err) => console.log(err.message));
     }
@@ -94,7 +97,7 @@ $(document).ready(function() {
       method: 'GET',
     })
       .done((result) => {
-        //console.log('result',result);
+        console.log('result',result.reverse());
         renderTweets(result)
       })
       .fail((err) => console.log(err.message));
