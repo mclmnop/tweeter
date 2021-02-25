@@ -3,6 +3,12 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
 html {
   box-sizing: border-box;
 }
@@ -16,10 +22,12 @@ html {
 
 body {
   color: #545149;
-  background-color: #e2c18c;
-  font-size: 24px;
+  background-color: #ece6db;
+  /* background-color: #e2c18c; */
+  font-size: 20px;
   font-family: 'Source Sans Pro';
 }
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
@@ -31,8 +39,4 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   /* justify-content: center; */
-}
-
-img {
-  margin-top: 40px;
 }

@@ -80,10 +80,12 @@ $(document).ready(function() {
   }
   loadTweets();
 
-  //toggle composing space for new tweet
-  $('#composeButton').on("click", function() {
+  //toggle composing space for new tweet, desktop version
+  $('.composeButton').on("click", function() {
+    alert('allo?')
     $(".new-tweet").slideToggle( "slow" );
   })
+
 
   //event listener for new tweets, posts result when submit
   $('form').on('submit', function(event) {
