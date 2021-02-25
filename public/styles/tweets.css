@@ -3,7 +3,9 @@ article {
   border: #545149;
   border-style: solid;
   border-width: thick;
-  
+  /* word-wrap: break-word;  */        
+  overflow-wrap: break-word;     
+  width: 100%;
 }
 
 article:hover{
@@ -11,9 +13,9 @@ article:hover{
   box-shadow: 10px 10px #8686ad;
 }
 
-article:hover #userID {
-  opacity: 1;
-}
+/* article:hover #userID {
+  opacity: 20;
+} */
 
 article header {
   display: flex;
@@ -34,7 +36,7 @@ article footer {
 
 #userID {
   color: #8686ad;
- opacity: 0;
+ opacity: 1;
 }
 
 #backToTopButton {
@@ -72,4 +74,9 @@ article footer {
 #backToTopButton.show {
   opacity: 1;
   visibility: visible;
+}
+
+.footer {
+  color: #8686ad;
+
 }

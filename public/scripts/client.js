@@ -49,7 +49,7 @@ $(document).ready(function() {
     </div>
     <footer>
       <p>${date}</p>
-      <p>Likes</p>
+      <p class="article footer">&#9872 &#x21c4 &#10084</p>
     </footer>
     </article>
     <br><br>
