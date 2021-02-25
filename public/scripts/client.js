@@ -82,7 +82,6 @@ $(document).ready(function() {
 
   //toggle composing space for new tweet, desktop version
   $('.composeButton').on("click", function() {
-    alert('allo?')
     $(".new-tweet").slideToggle( "slow" );
   })
 
@@ -97,11 +96,14 @@ $(document).ready(function() {
     const serialize = $(this).serialize();
     const input = serialize.substring(5);
     // console.log('serial',serialize.substring(5));
+    console.log(input.length)
   
-    if (input === "") {
-      $('#errMessage').text('Your tweet is empty, please hum something');
-    } else if (input.length > 140) {
+    if (input.length > 140) {
+    /* if (input === "") { */
       $('#errMessage').text('Tweet is over 140 characters');
+    } else if (input === "") {
+    /* } else if (input.length > 140) { */
+      $('#errMessage').text('Your tweet is empty, please hum something');
     } else {
       //post the user's tweet to save it to the db
       $.ajax({

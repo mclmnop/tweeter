@@ -2,7 +2,7 @@
   .body {
     font-size: 24px;
   }
-  .navbar {
+  .navBar {
     height: 120px;
     width: 100%;
     top: 0;
@@ -17,7 +17,6 @@
   .headText {
     display: none;
   }
-
   .headTextNav {
     width: 100%;
     display: flex;
@@ -25,8 +24,23 @@
     align-items: center;
     position: fixed;
   }
-  .header {
+  .desktopView {
+    display: flex;
+/*     flex-grow: 0;    
+    flex-shrink: 0; */
+    flex-basis: 50%;
+   
+    /* flex-basis: 50% 50%; */ 
+  }
+  .container {
     margin-top: 120px;
+    width: 40%;
+  }
+  .header {
+    /* margin-top: 120px; */
+    margin: 10em 5em 5em 5em;
+    width: 40%;
+
   }
   .composeButton {
     background-color: #4056A1;

@@ -42,63 +42,65 @@
       </div>
     </nav>
 
-    <header class='header'>
-      <div class="headText">
-        <span id='logo'>tweeter</span>
-        <span id='write'>Write a new tweet
-          <div>
-            <button class="composeButton">&#x21a1</button>
-          </div>
-        </span>
-      </div>
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2 class="name">Your Name</h2>
-      </div>
-  </header>
+    <div class="desktopView">
+      <header class='header'>
+        <div class="headText">
+          <span id='logo'>tweeter</span>
+          <span id='write'>Write a new tweet
+            <div>
+              <button class="composeButton">&#x21a1</button>
+            </div>
+          </span>
+        </div>
+        <div>
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2 class="name">Your Name</h2>
+        </div>
+    </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
+      <!-- Page-specific (main) content here -->
+      <main class="container">
 
-      <a id="backToTopButton"></a>
+        <a id="backToTopButton"></a>
 
-      
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <p id="errMessage"></p>
-        <form>
-          <div class="textInput">
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          </div>
-          <div class='submitTweet'>
-            <button type="submit" class='submitButton'>Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
+        
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <p id="errMessage"></p>
+          <form>
+            <div class="textInput">
+              <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            </div>
+            <div class='submitTweet'>
+              <button type="submit" class='submitButton'>Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
 
-      <br><br>
+        <br><br>
 
-      <section class="tweets">
-      </section>
+        <section class="tweets">
+        </section>
 
-      <!--<button>Toggle</button>
-      <p>
-        This is the paragraph to end all paragraphs.  You
-        should feel <em>lucky</em> to have seen such a paragraph in
-        your life.  Congratulations!
-      </p>
-       
-      <script>
-      $( "button" ).click(function() {
-        $( "p" ).slideToggle( "slow" );
-      });
-      </script>-->
-      
+        <!--<button>Toggle</button>
+        <p>
+          This is the paragraph to end all paragraphs.  You
+          should feel <em>lucky</em> to have seen such a paragraph in
+          your life.  Congratulations!
+        </p>
+        
+        <script>
+        $( "button" ).click(function() {
+          $( "p" ).slideToggle( "slow" );
+        });
+        </script>-->
+        
 
-    </main>
+      </main>
+    </div>
   </body>
 </html>
