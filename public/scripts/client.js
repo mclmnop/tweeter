@@ -66,6 +66,7 @@ $(document).ready(function() {
     }
   };
 
+  //load all tweets from fake db on load  
   const loadTweets = function() {
     $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -79,11 +80,9 @@ $(document).ready(function() {
   }
   loadTweets();
 
+  //toggle composing space for new tweet
   $('#composeButton').on("click", function() {
-    console.log('allo!');
-
     $(".new-tweet").slideToggle( "slow" );
-
   })
 
   //event listener for new tweets, posts result when submit

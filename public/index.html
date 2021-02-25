@@ -22,13 +22,18 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/composer.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav class="navBar">
       <span id='logo'>tweeter</span>
-      <span id='write'>Write a new tweet<div><button id="composeButton">&#x21a1</button></div></span>
+      <span id='write'>Write a new tweet
+        <div>
+          <button id="composeButton">&#x21a1</button>
+        </div>
+      </span>
     </nav>
 
     <header class='header'>
@@ -43,6 +48,10 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
+      <a id="backToTopButton"></a>
+
+      
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <p id="errMessage"></p>
@@ -74,6 +83,7 @@
         $( "p" ).slideToggle( "slow" );
       });
       </script>-->
+      
 
     </main>
   </body>
