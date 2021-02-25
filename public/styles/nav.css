@@ -2,6 +2,7 @@
   display:none; 
 } */
 
+/*logo and write button for mobile*/
 .headText {
   width: 100%;
   display: flex;
@@ -11,11 +12,10 @@
   top:0
 }
 
-/*hide logo and write button on mobile view*/
+/*logo and write button for desktop*/
 .headTextNav {
   display: none
 }
-
 
 #logo {
   font-family: 'Bungee';
@@ -28,11 +28,8 @@
   margin-right: 4%
  }
 
-.composeButton:hover {
-  cursor: pointer;
-}
 
- /*  Button animation with transparent background  START*/
+ /*  Write button's toggle animation with transparent background  START*/
 .composeButton {
   margin-top: 10px;
   background-repeat:no-repeat;
@@ -46,6 +43,7 @@
   animation: bounce .4s infinite alternate;
   -webkit-animation: bounce .4s infinite alternate;
   line-height: 1;
+  font-family: none;
 }
 
 @keyframes bounce {
@@ -66,5 +64,7 @@
 }
 /*  Button animation with transparent background  END*/
 
-
+.composeButton:hover {
+  cursor: pointer;
+}
 

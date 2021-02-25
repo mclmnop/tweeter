@@ -5,31 +5,31 @@
  */
 
 
-// returns strings for when the post what made, 10 days ago, 10 months, etc
+// returns strings for when the post what made 1-today, 2-yesterday, 3- x days ago, 4- x day x months ago.
 const calculateTimeAgo = function(dateCreated) {
   const now = new Date(Date.now());
-  //console.log(now, dateCreated.getDate())
-  if (now.getMonth() === dateCreated.getMonth() && now.getDate() === dateCreated.getDate()){
-      return 'today';
-  } else if (now.getMonth() === dateCreated.getMonth() && now.getDate() - dateCreated.getDate() === 1){
-      return 'yesterday';
-  } else if (now.getMonth() === dateCreated.getMonth()){
-      const difference = now.getDate() - dateCreated.getDate();
-      return (`${difference} days ago`);
-  } else if (now.getYear() === dateCreated.getYear()){
-      const differenceDays = now.getDate() - dateCreated.getDate();
-      const differenceMonths = now.getMonth() - dateCreated.getMonth();
-      return (`${differenceDays} days ${differenceMonths} month(s) ago`);
+  if (now.getMonth() === dateCreated.getMonth() && now.getDate() === dateCreated.getDate()) {
+    return 'today';
+  } else if (now.getMonth() === dateCreated.getMonth() && now.getDate() - dateCreated.getDate() === 1) {
+    return 'yesterday';
+  } else if (now.getMonth() === dateCreated.getMonth()) {
+    const difference = now.getDate() - dateCreated.getDate();
+    return (`${difference} days ago`);
+  } else if (now.getYear() === dateCreated.getYear()) {
+    const differenceDays = now.getDate() - dateCreated.getDate();
+    const differenceMonths = now.getMonth() - dateCreated.getMonth();
+    return (`${differenceDays} days ${differenceMonths} month(s) ago`);
   } else {
     return 'too long ago';
   }
-}
+};
 
-const escape =  function(str) {
+/* Escape function to prevent script injection by a user */
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 $(document).ready(function() {
 
@@ -53,38 +53,36 @@ $(document).ready(function() {
     </footer>
     </article>
     <br><br>
-    `
+    `;
     return tweetArticle;
-  }
+  };
 
   //loops through an array of tweets to post them one after the other
   const renderTweets = function(tweetArray) {
-    //console.log(tweetArray);
-    for(let tweet of tweetArray) {
+    for (let tweet of tweetArray) {
       const renderedTweet = createTweetElement(tweet);
       $('.tweets').append(renderedTweet);
     }
   };
 
-  //load all tweets from fake db on load  
+  //load all tweets from fake db on load, reverses order to post last on first
   const loadTweets = function() {
     $.ajax({
       url: 'http://localhost:8080/tweets',
       method: 'GET',
     })
       .done((result) => {
-        console.log('result',result.reverse());
-        renderTweets(result)
+        const sorted = result.reverse();
+        renderTweets(sorted);
       })
       .fail((err) => console.log(err.message));
-  }
+  };
   loadTweets();
 
-  //toggle composing space for new tweet, desktop version
+  //toggle composing space for new tweet
   $('.composeButton').on("click", function() {
-    $(".new-tweet").slideToggle( "slow" );
-  })
-
+    $(".new-tweet").slideToggle("slow");
+  });
 
   //event listener for new tweets, posts result when submit
   $('form').on('submit', function(event) {
@@ -92,17 +90,14 @@ $(document).ready(function() {
     // prevent the default behavior of the form submission
     event.preventDefault();
 
-    // capture the content of the tweet
+    // captures the content of the tweet
     const serialize = $(this).serialize();
     const input = serialize.substring(5);
-    // console.log('serial',serialize.substring(5));
-    console.log(input.length)
   
+    //validates if input is ok before submitting
     if (input.length > 140) {
-    /* if (input === "") { */
       $('#errMessage').text('Tweet is over 140 characters');
     } else if (input === "") {
-    /* } else if (input.length > 140) { */
       $('#errMessage').text('Your tweet is empty, please hum something');
     } else {
       //post the user's tweet to save it to the db
@@ -112,11 +107,10 @@ $(document).ready(function() {
         data: serialize,
       })
         .done((result) => {
-          console.log('result',result);
-          location.reload(true);
+          //reloads page after post to see new tweet
+          location.reload();
         })
         .fail((err) => console.log(err.message));
     }
-  })
-
+  });
 });

@@ -4,11 +4,6 @@
  * Do not modify these two selectors, please
  */
 
-/* * {
-  margin: 0;
-  padding: 0;
-} */
-
 html {
   box-sizing: border-box;
 }
@@ -23,20 +18,54 @@ html {
 body {
   color: #545149;
   background-color: #ece6db;
-  /* background-color: #e2c18c; */
   font-size: 20px;
   font-family: 'Source Sans Pro';
 }
 
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ /* Displays tweets from users*/
 .container {
   width: 90%;
   display: flex;
   flex-direction: column;
   margin-left: 5%;
   margin-right: 5%;
-  /* justify-content: center; */
+}
+
+
+#backToTopButton {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right:  15px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#backToTopButton::after {
+  content: "⬆️";
+  /* font-family: FontAwesome; */
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+
+#backToTopButton:hover {
+  cursor: pointer;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
 }

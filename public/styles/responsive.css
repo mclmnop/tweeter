@@ -1,7 +1,11 @@
+/*Items change for desktop view, navigation bar appears and header section section goes on the left*/
+
+
 @media only screen and (min-width: 1024px) {
   .body {
     font-size: 24px;
   }
+
   .navBar {
     height: 120px;
     width: 100%;
@@ -14,9 +18,11 @@
     padding: 0 1.5em 0em 1.5em; 
     background-color: #4056A1;
   }
+
   .headText {
     display: none;
   }
+
   .headTextNav {
     width: 100%;
     display: flex;
@@ -24,27 +30,26 @@
     align-items: center;
     position: fixed;
   }
+
+  /* this  div contains header and main section to show them side by side*/
   .desktopView {
     display: flex;
-/*     flex-grow: 0;    
-    flex-shrink: 0; */
     flex-basis: 50%;
-   
-    /* flex-basis: 50% 50%; */ 
   }
+
   .container {
-    margin-top: 120px;
+    margin-top: 153px;
     width: 40%;
   }
+
   .header {
-    /* margin-top: 120px; */
     margin: 10em 5em 5em 5em;
     width: 40%;
-
   }
   .composeButton {
     background-color: #4056A1;
   }
+
   #write {
     margin-top: 0%;
    }

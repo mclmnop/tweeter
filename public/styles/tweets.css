@@ -1,9 +1,10 @@
+/*Everything related to one tweet posted*/
+
 article {
   padding: 2%;
   border: #545149;
   border-style: solid;
-  border-width: thick;
-  /* word-wrap: break-word;  */        
+  border-width: thick;       
   overflow-wrap: break-word;     
   width: 100%;
 }
@@ -13,16 +14,13 @@ article:hover{
   box-shadow: 10px 10px #8686ad;
 }
 
-/* article:hover #userID {
-  opacity: 20;
-} */
-
 article header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 125px;
 }
+
 article footer {
   display: flex;
   justify-content: space-between;
@@ -39,44 +37,6 @@ article footer {
  opacity: 1;
 }
 
-#backToTopButton {
-  display: inline-block;
-  /* background-color: #4056A1; */
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  border-radius: 4px;
-  position: fixed;
-  bottom: 30px;
-  right:  15px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
-}
-#backToTopButton::after {
-  content: "⬆️";
-  /* font-family: FontAwesome; */
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
-  color: #fff;
-}
-#backToTopButton:hover {
-  cursor: pointer;
-  /* background-color: #333; */
-}
-/* #backToTopButton:active {
-  background-color: #555;
-} */
-#backToTopButton.show {
-  opacity: 1;
-  visibility: visible;
-}
-
 .footer {
   color: #8686ad;
-
 }
