@@ -40,3 +40,7 @@ article footer {
 .footer {
   color: #8686ad;
 }
+
+.footer:hover {
+  cursor: pointer;
+}

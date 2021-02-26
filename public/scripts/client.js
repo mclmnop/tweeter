@@ -9,16 +9,19 @@
 const calculateTimeAgo = function(dateCreated) {
   const now = new Date(Date.now());
   if (now.getMonth() === dateCreated.getMonth() && now.getDate() === dateCreated.getDate()) {
-    return 'today';
+    if (now.getMinutes() === dateCreated.getMinutes()) {
+      return `few seconds ago`;
+    } else if (now.getHours() === dateCreated.getHours()) {
+      return `${now.getMinutes() - dateCreated.getMinutes()} minute(s) ago`;
+    } else {
+      return `${now.getHours() - dateCreated.getHours()} hour(s) ago`;
+    }
   } else if (now.getMonth() === dateCreated.getMonth() && now.getDate() - dateCreated.getDate() === 1) {
     return 'yesterday';
   } else if (now.getMonth() === dateCreated.getMonth()) {
-    const difference = now.getDate() - dateCreated.getDate();
-    return (`${difference} days ago`);
+    return (`${now.getDate() - dateCreated.getDate()} days ago`);
   } else if (now.getYear() === dateCreated.getYear()) {
-    const differenceDays = now.getDate() - dateCreated.getDate();
-    const differenceMonths = now.getMonth() - dateCreated.getMonth();
-    return (`${differenceDays} days ${differenceMonths} month(s) ago`);
+    return (`${now.getDate() - dateCreated.getDate()} days ${now.getMonth() - dateCreated.getMonth()} month(s) ago`);
   } else {
     return 'too long ago';
   }
@@ -49,7 +52,11 @@ $(document).ready(function() {
     </div>
     <footer>
       <p>${date}</p>
-      <p class="article footer">&#9872 &#x21c4 &#10084</p>
+      <p class="article footer">
+        <a title="Flag">&#9872</a>
+        <a title="Re-tweet">&#x21c4</a>
+        <a title="Like">&#10084</a>
+      </p>
     </footer>
     </article>
     <br><br>
